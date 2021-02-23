@@ -17,11 +17,14 @@ let server = http.createServer((req, res) => {
   let path = regURL.pathname;
   let trimmedPath = path.replace(/^\/+|\/+$/g, "");
 
+  // Get the HTTP method
+  let method = req.method.toUpperCase();
+
   // Send the response
   res.end("Hello, World\n");
 
   // Log the request path
-  console.log("Request is received on path: " + trimmedPath);
+  console.log("Request is received on path: " + trimmedPath + " with method: " + method);
 });
 
 // Start the server, and have it listen on port 3000
